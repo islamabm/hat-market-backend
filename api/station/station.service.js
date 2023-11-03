@@ -28,16 +28,16 @@ async function getById(stationId) {
   }
 }
 
-async function remove(stationId) {
-  try {
-    const collection = await dbService.getCollection('react_playlist')
-    await collection.deleteOne({ _id: new ObjectId(stationId) })
-    return stationId
-  } catch (err) {
-    logger.error(`cannot remove station ${stationId}`, err)
-    throw err
-  }
-}
+// async function remove(stationId) {
+//   try {
+//     const collection = await dbService.getCollection('react_playlist')
+//     await collection.deleteOne({ _id: new ObjectId(stationId) })
+//     return stationId
+//   } catch (err) {
+//     logger.error(`cannot remove station ${stationId}`, err)
+//     throw err
+//   }
+// }
 
 async function add(station) {
   try {
@@ -50,39 +50,39 @@ async function add(station) {
   }
 }
 
-async function update(station) {
-  try {
-    const stationToSave = {
-      name: station.name,
-      desc: station.desc,
-      imgUrl: station.imgUrl,
-    }
-    const collection = await dbService.getCollection('react_playlist')
-    await collection.updateOne(
-      { _id: new ObjectId(station._id) },
-      { $set: stationToSave }
-    )
-    return station
-  } catch (err) {
-    logger.error(`cannot update station ${station._id}`, err)
-    throw err
-  }
-}
+// async function update(station) {
+//   try {
+//     const stationToSave = {
+//       name: station.name,
+//       desc: station.desc,
+//       imgUrl: station.imgUrl,
+//     }
+//     const collection = await dbService.getCollection('react_playlist')
+//     await collection.updateOne(
+//       { _id: new ObjectId(station._id) },
+//       { $set: stationToSave }
+//     )
+//     return station
+//   } catch (err) {
+//     logger.error(`cannot update station ${station._id}`, err)
+//     throw err
+//   }
+// }
 
-async function updateSongs(stationId, songs) {
-  try {
-    const collection = await dbService.getCollection('react_playlist')
-    const station = await collection.findOneAndUpdate(
-      { _id: new ObjectId(stationId) },
-      { $set: { songs: songs } },
-      { returnOriginal: false }
-    )
-    return station.value
-  } catch (err) {
-    logger.error(`cannot update station ${stationId}`, err)
-    throw err
-  }
-}
+// async function updateSongs(stationId, songs) {
+//   try {
+//     const collection = await dbService.getCollection('react_playlist')
+//     const station = await collection.findOneAndUpdate(
+//       { _id: new ObjectId(stationId) },
+//       { $set: { songs: songs } },
+//       { returnOriginal: false }
+//     )
+//     return station.value
+//   } catch (err) {
+//     logger.error(`cannot update station ${stationId}`, err)
+//     throw err
+//   }
+// }
 
 async function addTheProduct(categoryNameInEnglish, product, subCategoryName) {
   try {
@@ -131,27 +131,27 @@ async function addThesubCategory(categoryNameInEnglish, subCategory) {
   }
 }
 
-async function removeStationSong(stationId, songId) {
-  try {
-    const collection = await dbService.getCollection('react_playlist')
-    const station = await collection.updateOne(
-      { _id: new ObjectId(stationId) },
-      { $pull: { songs: { _id: songId } } }
-    )
-    return songId
-  } catch (err) {
-    logger.error(`cannot add station msg ${stationId}`, err)
-    throw err
-  }
-}
+// async function removeStationSong(stationId, songId) {
+//   try {
+//     const collection = await dbService.getCollection('react_playlist')
+//     const station = await collection.updateOne(
+//       { _id: new ObjectId(stationId) },
+//       { $pull: { songs: { _id: songId } } }
+//     )
+//     return songId
+//   } catch (err) {
+//     logger.error(`cannot add station msg ${stationId}`, err)
+//     throw err
+//   }
+// }
 module.exports = {
-  remove,
+  // remove,
   query,
   getById,
   add,
-  update,
+  // update,
   addTheProduct,
-  removeStationSong,
-  updateSongs,
+  // removeStationSong,
+  // updateSongs,
   addThesubCategory,
 }
