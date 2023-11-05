@@ -21,6 +21,17 @@ async function getStationById(req, res) {
     res.status(500).send({ err: 'Failed to get station' })
   }
 }
+async function getProductsById(req, res) {
+  try {
+    const catId = req.params.catId
+    const subId = req.params.subId
+    const products = await stationService.getProducts(catId, subId)
+    res.json(products)
+  } catch (err) {
+    logger.error('Failed to get products', err)
+    res.status(500).send({ err: 'Failed to get station' })
+  }
+}
 
 async function addStation(req, res) {
   try {
@@ -119,4 +130,5 @@ module.exports = {
   addProductToSubCategoryInCategory,
   removeStationSong,
   addSubCategoryToCategory,
+  getProductsById,
 }

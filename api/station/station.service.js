@@ -19,11 +19,23 @@ async function getById(stationId) {
   try {
     const collection = await dbService.getCollection('categories')
 
-    const station = collection.findOne({ _id: new ObjectId(stationId) })
-
+    const station = await collection.findOne({ _id: new ObjectId(stationId) })
+    console.log("station", station)
     return station
   } catch (err) {
     logger.error(`while finding station ${stationId}`, err)
+    throw err
+  }
+}
+async function getProducts(catId, subId) {
+  try {
+    const collection = await dbService.getCollection('categories')
+
+    const station = await collection.findOne({ _id: new ObjectId(catId) })
+    const subCategory = station.subCategories.find((c) => c.subCategoryId === subId)
+    return subCategory.products
+  } catch (err) {
+    logger.error(`while finding station ${catId}`, err)
     throw err
   }
 }
@@ -149,6 +161,7 @@ module.exports = {
   query,
   getById,
   add,
+  getProducts,
   // update,
   addTheProduct,
   // removeStationSong,

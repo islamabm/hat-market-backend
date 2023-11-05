@@ -14,6 +14,7 @@ const {
   removeStationSong,
   updateStationSongs,
   addSubCategoryToCategory,
+  getProductsById,
 } = require('./station.controller')
 const router = express.Router()
 
@@ -23,6 +24,8 @@ const router = express.Router()
 router.get('/', getStations)
 // router.get('/:category', log, getStations);
 router.get('/:id', getStationById)
+// station/${catId}/subCategory/${subId}
+router.get('/:catId/subCategory/:subId', getProductsById)
 router.post('/', addStation)
 router.put('/:id', updateStation)
 router.put('/songs/:id', updateStationSongs)
