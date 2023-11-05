@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/hat-market-frontend/static/css/main.039f73fe.css",
-    "main.js": "/hat-market-frontend/static/js/main.feddc3b2.js",
+    "main.js": "/hat-market-frontend/static/js/main.7d615ecc.js",
     "static/js/787.dfa6a89a.chunk.js": "/hat-market-frontend/static/js/787.dfa6a89a.chunk.js",
     "index.html": "/hat-market-frontend/index.html",
     "main.039f73fe.css.map": "/hat-market-frontend/static/css/main.039f73fe.css.map",
-    "main.feddc3b2.js.map": "/hat-market-frontend/static/js/main.feddc3b2.js.map",
+    "main.7d615ecc.js.map": "/hat-market-frontend/static/js/main.7d615ecc.js.map",
     "787.dfa6a89a.chunk.js.map": "/hat-market-frontend/static/js/787.dfa6a89a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.039f73fe.css",
-    "static/js/main.feddc3b2.js"
+    "static/js/main.7d615ecc.js"
   ]
 }
